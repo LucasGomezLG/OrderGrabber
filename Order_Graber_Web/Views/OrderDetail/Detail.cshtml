@@ -1,0 +1,52 @@
+﻿@model Order_Graber_DataService.ORDERS_DETAIL
+
+<div>
+    <h4>ORDERS_DETAIL</h4>
+    <hr />
+    <dl class="dl-horizontal">
+        <dt>
+            Id
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.line_id)
+        </dd>
+
+        <dt>
+            Id de orden
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.order_id)
+        </dd>
+
+        <dt>
+  Id de producto
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.product_id)
+        </dd>
+
+        <dt>
+            Cantidad
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.quantity)
+        </dd>
+
+        <dt>
+            Total
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.total_line)
+        </dd>
+
+    </dl>
+</div>
+<p>
+    @Html.ActionLink("Editar", "Edit", new { id = Model.line_id }) |
+    @Html.ActionLink("Volver", "IndexOrdersDetail")
+</p>

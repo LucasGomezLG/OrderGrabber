@@ -1,0 +1,61 @@
+﻿@model Order_Graber_DataService.PRODUCTS
+
+<div>
+    <h4>Detalle del producto</h4>
+    <hr />
+    <dl class="dl-horizontal">
+
+        <dt>
+            Id del producto
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.product_id)
+        </dd>
+
+        <dt>
+            Codigo de producto
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.product_code)
+        </dd>
+
+        <dt>
+            Nombre del producto
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.product_name)
+        </dd>
+
+        <dt>
+            Precio de costo
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.cost_price)
+        </dd>
+
+        <dt>
+            Precio de venta
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.sale_price)
+        </dd>
+
+        <dt>
+            State
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.state)
+        </dd>
+
+    </dl>
+</div>
+<p>
+    @Html.ActionLink("Editar", "Edit", new {  id = Model.product_id }) |
+    @Html.ActionLink("Volver", "IndexProduct")
+</p>

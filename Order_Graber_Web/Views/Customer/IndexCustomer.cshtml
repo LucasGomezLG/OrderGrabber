@@ -1,0 +1,39 @@
+﻿@model IEnumerable<Order_Graber_DataService.CUSTOMERS>
+
+<p>
+    @Html.ActionLink("Nuevo cliente", "Create")
+</p>
+<table class="table">
+    <tr>
+        <th>
+            Nombre
+        </th>
+        <th>
+            Telefono            
+        </th>
+        <th>
+            State
+        </th>
+        <th></th>
+    </tr>
+
+@foreach (var item in Model) {
+    <tr>
+        <td>
+            @Html.DisplayFor(modelItem => item.customer_name)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.phone)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.state)
+        </td>
+        <td>
+            @Html.ActionLink("Editar", "Edit", new { id = item.client_id }) |
+            @Html.ActionLink("Detalle", "Detail", new { id = item.client_id }) |
+            @Html.ActionLink("Borrar", "Delete", new { id = item.client_id })
+        </td>
+    </tr>
+}
+
+</table>

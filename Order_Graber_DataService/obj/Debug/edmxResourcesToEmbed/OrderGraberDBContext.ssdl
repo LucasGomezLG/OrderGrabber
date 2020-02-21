@@ -1,0 +1,101 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Schema Namespace="OrderGraberDBModel.Store" Provider="System.Data.SqlClient" ProviderManifestToken="2012" Alias="Self" xmlns:store="http://schemas.microsoft.com/ado/2007/12/edm/EntityStoreSchemaGenerator" xmlns:customannotation="http://schemas.microsoft.com/ado/2013/11/edm/customannotation" xmlns="http://schemas.microsoft.com/ado/2009/11/edm/ssdl">
+  <EntityType Name="CUSTOMERS">
+    <Key>
+      <PropertyRef Name="client_id" />
+    </Key>
+    <Property Name="client_id" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+    <Property Name="document_type" Type="varchar" MaxLength="10" />
+    <Property Name="document_nro" Type="varchar" MaxLength="20" />
+    <Property Name="customer_name" Type="varchar" MaxLength="255" />
+    <Property Name="address" Type="varchar" MaxLength="255" />
+    <Property Name="phone" Type="varchar" MaxLength="100" />
+    <Property Name="email" Type="varchar" MaxLength="255" />
+    <Property Name="state" Type="varchar" MaxLength="1" />
+  </EntityType>
+  <EntityType Name="ORDERS">
+    <Key>
+      <PropertyRef Name="order_id" />
+    </Key>
+    <Property Name="order_id" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+    <Property Name="client_id" Type="int" />
+    <Property Name="order_date" Type="datetime" />
+    <Property Name="total_order" Type="float" />
+    <Property Name="state" Type="varchar" MaxLength="1" />
+  </EntityType>
+  <EntityType Name="ORDERS_DETAIL">
+    <Key>
+      <PropertyRef Name="line_id" />
+    </Key>
+    <Property Name="line_id" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+    <Property Name="order_id" Type="int" />
+    <Property Name="product_id" Type="int" />
+    <Property Name="quantity" Type="int" />
+    <Property Name="total_line" Type="float" />
+  </EntityType>
+  <EntityType Name="PRODUCTS">
+    <Key>
+      <PropertyRef Name="product_id" />
+    </Key>
+    <Property Name="product_id" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+    <Property Name="product_code" Type="varchar" MaxLength="50" />
+    <Property Name="product_name" Type="varchar" MaxLength="100" />
+    <Property Name="cost_price" Type="float" />
+    <Property Name="sale_price" Type="float" />
+    <Property Name="state" Type="varchar" MaxLength="1" />
+  </EntityType>
+  <Association Name="FK_client_id">
+    <End Role="CUSTOMERS" Type="Self.CUSTOMERS" Multiplicity="0..1" />
+    <End Role="ORDERS" Type="Self.ORDERS" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="CUSTOMERS">
+        <PropertyRef Name="client_id" />
+      </Principal>
+      <Dependent Role="ORDERS">
+        <PropertyRef Name="client_id" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK_order_id">
+    <End Role="ORDERS" Type="Self.ORDERS" Multiplicity="0..1" />
+    <End Role="ORDERS_DETAIL" Type="Self.ORDERS_DETAIL" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="ORDERS">
+        <PropertyRef Name="order_id" />
+      </Principal>
+      <Dependent Role="ORDERS_DETAIL">
+        <PropertyRef Name="order_id" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK_product_id">
+    <End Role="PRODUCTS" Type="Self.PRODUCTS" Multiplicity="0..1" />
+    <End Role="ORDERS_DETAIL" Type="Self.ORDERS_DETAIL" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="PRODUCTS">
+        <PropertyRef Name="product_id" />
+      </Principal>
+      <Dependent Role="ORDERS_DETAIL">
+        <PropertyRef Name="product_id" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <EntityContainer Name="OrderGraberDBModelStoreContainer">
+    <EntitySet Name="CUSTOMERS" EntityType="Self.CUSTOMERS" Schema="dbo" store:Type="Tables" />
+    <EntitySet Name="ORDERS" EntityType="Self.ORDERS" Schema="dbo" store:Type="Tables" />
+    <EntitySet Name="ORDERS_DETAIL" EntityType="Self.ORDERS_DETAIL" Schema="dbo" store:Type="Tables" />
+    <EntitySet Name="PRODUCTS" EntityType="Self.PRODUCTS" Schema="dbo" store:Type="Tables" />
+    <AssociationSet Name="FK_client_id" Association="Self.FK_client_id">
+      <End Role="CUSTOMERS" EntitySet="CUSTOMERS" />
+      <End Role="ORDERS" EntitySet="ORDERS" />
+    </AssociationSet>
+    <AssociationSet Name="FK_order_id" Association="Self.FK_order_id">
+      <End Role="ORDERS" EntitySet="ORDERS" />
+      <End Role="ORDERS_DETAIL" EntitySet="ORDERS_DETAIL" />
+    </AssociationSet>
+    <AssociationSet Name="FK_product_id" Association="Self.FK_product_id">
+      <End Role="PRODUCTS" EntitySet="PRODUCTS" />
+      <End Role="ORDERS_DETAIL" EntitySet="ORDERS_DETAIL" />
+    </AssociationSet>
+  </EntityContainer>
+</Schema>

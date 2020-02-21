@@ -1,0 +1,107 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Schema Namespace="OrderGraberDBModel" Alias="Self" annotation:UseStrongSpatialTypes="false" xmlns:annotation="http://schemas.microsoft.com/ado/2009/02/edm/annotation" xmlns:customannotation="http://schemas.microsoft.com/ado/2013/11/edm/customannotation" xmlns="http://schemas.microsoft.com/ado/2009/11/edm">
+  <EntityType Name="CUSTOMERS">
+    <Key>
+      <PropertyRef Name="client_id" />
+    </Key>
+    <Property Name="client_id" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+    <Property Name="document_type" Type="String" MaxLength="10" FixedLength="false" Unicode="false" />
+    <Property Name="document_nro" Type="String" MaxLength="20" FixedLength="false" Unicode="false" />
+    <Property Name="customer_name" Type="String" MaxLength="255" FixedLength="false" Unicode="false" />
+    <Property Name="address" Type="String" MaxLength="255" FixedLength="false" Unicode="false" />
+    <Property Name="phone" Type="String" MaxLength="100" FixedLength="false" Unicode="false" />
+    <Property Name="email" Type="String" MaxLength="255" FixedLength="false" Unicode="false" />
+    <Property Name="state" Type="String" MaxLength="1" FixedLength="false" Unicode="false" />
+    <NavigationProperty Name="ORDERS" Relationship="Self.FK_client_id" FromRole="CUSTOMERS" ToRole="ORDERS" />
+  </EntityType>
+  <EntityType Name="ORDERS">
+    <Key>
+      <PropertyRef Name="order_id" />
+    </Key>
+    <Property Name="order_id" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+    <Property Name="client_id" Type="Int32" />
+    <Property Name="order_date" Type="DateTime" Precision="3" />
+    <Property Name="total_order" Type="Double" />
+    <Property Name="state" Type="String" MaxLength="1" FixedLength="false" Unicode="false" />
+    <NavigationProperty Name="CUSTOMERS" Relationship="Self.FK_client_id" FromRole="ORDERS" ToRole="CUSTOMERS" />
+    <NavigationProperty Name="ORDERS_DETAIL" Relationship="Self.FK_order_id" FromRole="ORDERS" ToRole="ORDERS_DETAIL" />
+  </EntityType>
+  <EntityType Name="ORDERS_DETAIL">
+    <Key>
+      <PropertyRef Name="line_id" />
+    </Key>
+    <Property Name="line_id" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+    <Property Name="order_id" Type="Int32" />
+    <Property Name="product_id" Type="Int32" />
+    <Property Name="quantity" Type="Int32" />
+    <Property Name="total_line" Type="Double" />
+    <NavigationProperty Name="ORDERS" Relationship="Self.FK_order_id" FromRole="ORDERS_DETAIL" ToRole="ORDERS" />
+    <NavigationProperty Name="PRODUCTS" Relationship="Self.FK_product_id" FromRole="ORDERS_DETAIL" ToRole="PRODUCTS" />
+  </EntityType>
+  <EntityType Name="PRODUCTS">
+    <Key>
+      <PropertyRef Name="product_id" />
+    </Key>
+    <Property Name="product_id" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+    <Property Name="product_code" Type="String" MaxLength="50" FixedLength="false" Unicode="false" />
+    <Property Name="product_name" Type="String" MaxLength="100" FixedLength="false" Unicode="false" />
+    <Property Name="cost_price" Type="Double" />
+    <Property Name="sale_price" Type="Double" />
+    <Property Name="state" Type="String" MaxLength="1" FixedLength="false" Unicode="false" />
+    <NavigationProperty Name="ORDERS_DETAIL" Relationship="Self.FK_product_id" FromRole="PRODUCTS" ToRole="ORDERS_DETAIL" />
+  </EntityType>
+  <Association Name="FK_client_id">
+    <End Role="CUSTOMERS" Type="Self.CUSTOMERS" Multiplicity="0..1" />
+    <End Role="ORDERS" Type="Self.ORDERS" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="CUSTOMERS">
+        <PropertyRef Name="client_id" />
+      </Principal>
+      <Dependent Role="ORDERS">
+        <PropertyRef Name="client_id" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK_order_id">
+    <End Role="ORDERS" Type="Self.ORDERS" Multiplicity="0..1" />
+    <End Role="ORDERS_DETAIL" Type="Self.ORDERS_DETAIL" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="ORDERS">
+        <PropertyRef Name="order_id" />
+      </Principal>
+      <Dependent Role="ORDERS_DETAIL">
+        <PropertyRef Name="order_id" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK_product_id">
+    <End Role="PRODUCTS" Type="Self.PRODUCTS" Multiplicity="0..1" />
+    <End Role="ORDERS_DETAIL" Type="Self.ORDERS_DETAIL" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="PRODUCTS">
+        <PropertyRef Name="product_id" />
+      </Principal>
+      <Dependent Role="ORDERS_DETAIL">
+        <PropertyRef Name="product_id" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <EntityContainer Name="OrderGraberDBEntities" annotation:LazyLoadingEnabled="true">
+    <EntitySet Name="CUSTOMERS" EntityType="Self.CUSTOMERS" />
+    <EntitySet Name="ORDERS" EntityType="Self.ORDERS" />
+    <EntitySet Name="ORDERS_DETAIL" EntityType="Self.ORDERS_DETAIL" />
+    <EntitySet Name="PRODUCTS" EntityType="Self.PRODUCTS" />
+    <AssociationSet Name="FK_client_id" Association="Self.FK_client_id">
+      <End Role="CUSTOMERS" EntitySet="CUSTOMERS" />
+      <End Role="ORDERS" EntitySet="ORDERS" />
+    </AssociationSet>
+    <AssociationSet Name="FK_order_id" Association="Self.FK_order_id">
+      <End Role="ORDERS" EntitySet="ORDERS" />
+      <End Role="ORDERS_DETAIL" EntitySet="ORDERS_DETAIL" />
+    </AssociationSet>
+    <AssociationSet Name="FK_product_id" Association="Self.FK_product_id">
+      <End Role="PRODUCTS" EntitySet="PRODUCTS" />
+      <End Role="ORDERS_DETAIL" EntitySet="ORDERS_DETAIL" />
+    </AssociationSet>
+  </EntityContainer>
+</Schema>

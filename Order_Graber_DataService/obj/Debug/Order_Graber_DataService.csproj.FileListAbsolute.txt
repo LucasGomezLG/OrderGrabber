@@ -1,0 +1,14 @@
+C:\Users\lucas.gomez\Desktop\Net\Order_Graber\Order_Graber_DataService\bin\Debug\Data\OrderGraberDB.mdf
+C:\Users\lucas.gomez\Desktop\Net\Order_Graber\Order_Graber_DataService\bin\Debug\Data\OrderGraberDB_log.ldf
+C:\Users\lucas.gomez\Desktop\Net\Order_Graber\Order_Graber_DataService\bin\Debug\Order_Graber_DataService.dll.config
+C:\Users\lucas.gomez\Desktop\Net\Order_Graber\Order_Graber_DataService\bin\Debug\Order_Graber_DataService.dll
+C:\Users\lucas.gomez\Desktop\Net\Order_Graber\Order_Graber_DataService\bin\Debug\Order_Graber_DataService.pdb
+C:\Users\lucas.gomez\Desktop\Net\Order_Graber\Order_Graber_DataService\bin\Debug\EntityFramework.dll
+C:\Users\lucas.gomez\Desktop\Net\Order_Graber\Order_Graber_DataService\bin\Debug\EntityFramework.SqlServer.dll
+C:\Users\lucas.gomez\Desktop\Net\Order_Graber\Order_Graber_DataService\bin\Debug\EntityFramework.xml
+C:\Users\lucas.gomez\Desktop\Net\Order_Graber\Order_Graber_DataService\bin\Debug\EntityFramework.SqlServer.xml
+C:\Users\lucas.gomez\Desktop\Net\Order_Graber\Order_Graber_DataService\obj\Debug\Order_Graber_DataService.csproj.CoreCompileInputs.cache
+C:\Users\lucas.gomez\Desktop\Net\Order_Graber\Order_Graber_DataService\obj\Debug\Order_Graber_DataService.csproj.CopyComplete
+C:\Users\lucas.gomez\Desktop\Net\Order_Graber\Order_Graber_DataService\obj\Debug\Order_Graber_DataService.dll
+C:\Users\lucas.gomez\Desktop\Net\Order_Graber\Order_Graber_DataService\obj\Debug\Order_Graber_DataService.pdb
+C:\Users\lucas.gomez\Desktop\Net\Order_Graber\Order_Graber_DataService\obj\Debug\Order_Graber_DataService.csprojAssemblyReference.cache
