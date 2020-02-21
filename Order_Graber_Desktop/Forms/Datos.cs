@@ -189,5 +189,12 @@ namespace Order_Graber_Desktop.Forms
         {
 
         }
+
+        private void button8_Click(object sender, EventArgs e)
+        {
+            AddDetalleOrden Check = new AddDetalleOrden();
+            Check.Show();
+            Hide();
+        }
     }
 }

@@ -45,7 +45,6 @@
             this.button7 = new System.Windows.Forms.Button();
             this.button8 = new System.Windows.Forms.Button();
             this.button9 = new System.Windows.Forms.Button();
-            this.Column1 = new System.Windows.Forms.DataGridViewTextBoxColumn();
             ((System.ComponentModel.ISupportInitialize)(this.gridClientes)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.gridProductos)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.gridOrdenes)).BeginInit();
@@ -64,14 +63,9 @@
             // 
             // gridClientes
             // 
-            this.gridClientes.AllowUserToAddRows = false;
-            this.gridClientes.AllowUserToDeleteRows = false;
             this.gridClientes.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
-            this.gridClientes.Columns.AddRange(new System.Windows.Forms.DataGridViewColumn[] {
-            this.Column1});
             this.gridClientes.Location = new System.Drawing.Point(106, 90);
             this.gridClientes.Name = "gridClientes";
-            this.gridClientes.ReadOnly = true;
             this.gridClientes.Size = new System.Drawing.Size(545, 150);
             this.gridClientes.TabIndex = 1;
             this.gridClientes.CellContentClick += new System.Windows.Forms.DataGridViewCellEventHandler(this.dataGridView1_CellContentClick);
@@ -209,6 +203,7 @@
             this.button8.TabIndex = 15;
             this.button8.Text = "Agregar detalle";
             this.button8.UseVisualStyleBackColor = true;
+            this.button8.Click += new System.EventHandler(this.button8_Click);
             // 
             // button9
             // 
@@ -219,12 +214,6 @@
             this.button9.Text = "Salir";
             this.button9.UseVisualStyleBackColor = true;
             this.button9.Click += new System.EventHandler(this.button9_Click);
-            // 
-            // Column1
-            // 
-            this.Column1.DataPropertyName = "client_id";
-            this.Column1.HeaderText = "ID";
-            this.Column1.Name = "Column1";
             // 
             // Datos
             // 
@@ -282,6 +271,5 @@
         private System.Windows.Forms.Button button7;
         private System.Windows.Forms.Button button8;
         private System.Windows.Forms.Button button9;
-        private System.Windows.Forms.DataGridViewTextBoxColumn Column1;
     }
 }

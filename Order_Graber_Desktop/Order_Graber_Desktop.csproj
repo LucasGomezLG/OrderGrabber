@@ -62,6 +62,12 @@
     <Compile Include="Forms\AddCliente.Designer.cs">
       <DependentUpon>AddCliente.cs</DependentUpon>
     </Compile>
+    <Compile Include="Forms\AddDetalleOrden.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Forms\AddDetalleOrden.Designer.cs">
+      <DependentUpon>AddDetalleOrden.cs</DependentUpon>
+    </Compile>
     <Compile Include="Forms\AddOrden.cs">
       <SubType>Form</SubType>
     </Compile>
@@ -90,6 +96,9 @@
     <Compile Include="Properties\AssemblyInfo.cs" />
     <EmbeddedResource Include="Forms\AddCliente.resx">
       <DependentUpon>AddCliente.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Forms\AddDetalleOrden.resx">
+      <DependentUpon>AddDetalleOrden.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="Forms\AddOrden.resx">
       <DependentUpon>AddOrden.cs</DependentUpon>
