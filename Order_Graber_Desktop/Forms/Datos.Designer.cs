@@ -45,6 +45,7 @@
             this.button7 = new System.Windows.Forms.Button();
             this.button8 = new System.Windows.Forms.Button();
             this.button9 = new System.Windows.Forms.Button();
+            this.Column1 = new System.Windows.Forms.DataGridViewTextBoxColumn();
             ((System.ComponentModel.ISupportInitialize)(this.gridClientes)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.gridProductos)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.gridOrdenes)).BeginInit();
@@ -63,9 +64,14 @@
             // 
             // gridClientes
             // 
+            this.gridClientes.AllowUserToAddRows = false;
+            this.gridClientes.AllowUserToDeleteRows = false;
             this.gridClientes.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
+            this.gridClientes.Columns.AddRange(new System.Windows.Forms.DataGridViewColumn[] {
+            this.Column1});
             this.gridClientes.Location = new System.Drawing.Point(106, 90);
             this.gridClientes.Name = "gridClientes";
+            this.gridClientes.ReadOnly = true;
             this.gridClientes.Size = new System.Drawing.Size(545, 150);
             this.gridClientes.TabIndex = 1;
             this.gridClientes.CellContentClick += new System.Windows.Forms.DataGridViewCellEventHandler(this.dataGridView1_CellContentClick);
@@ -165,6 +171,7 @@
             this.button6.TabIndex = 11;
             this.button6.Text = "Agregar orden";
             this.button6.UseVisualStyleBackColor = true;
+            this.button6.Click += new System.EventHandler(this.button6_Click);
             // 
             // label4
             // 
@@ -213,6 +220,12 @@
             this.button9.UseVisualStyleBackColor = true;
             this.button9.Click += new System.EventHandler(this.button9_Click);
             // 
+            // Column1
+            // 
+            this.Column1.DataPropertyName = "client_id";
+            this.Column1.HeaderText = "ID";
+            this.Column1.Name = "Column1";
+            // 
             // Datos
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
@@ -240,6 +253,7 @@
             this.Name = "Datos";
             this.StartPosition = System.Windows.Forms.FormStartPosition.CenterScreen;
             this.Text = "Datos";
+            this.Load += new System.EventHandler(this.Datos_Load);
             ((System.ComponentModel.ISupportInitialize)(this.gridClientes)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.gridProductos)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.gridOrdenes)).EndInit();
@@ -268,5 +282,6 @@
         private System.Windows.Forms.Button button7;
         private System.Windows.Forms.Button button8;
         private System.Windows.Forms.Button button9;
+        private System.Windows.Forms.DataGridViewTextBoxColumn Column1;
     }
 }

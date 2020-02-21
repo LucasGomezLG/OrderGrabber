@@ -62,6 +62,12 @@
     <Compile Include="Forms\AddCliente.Designer.cs">
       <DependentUpon>AddCliente.cs</DependentUpon>
     </Compile>
+    <Compile Include="Forms\AddOrden.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Forms\AddOrden.Designer.cs">
+      <DependentUpon>AddOrden.cs</DependentUpon>
+    </Compile>
     <Compile Include="Forms\AddProductos.cs">
       <SubType>Form</SubType>
     </Compile>
@@ -84,6 +90,9 @@
     <Compile Include="Properties\AssemblyInfo.cs" />
     <EmbeddedResource Include="Forms\AddCliente.resx">
       <DependentUpon>AddCliente.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Forms\AddOrden.resx">
+      <DependentUpon>AddOrden.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="Forms\AddProductos.resx">
       <DependentUpon>AddProductos.cs</DependentUpon>

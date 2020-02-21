@@ -42,7 +42,9 @@ namespace Order_Graber_Desktop.Forms
             gridDetOrd.Columns.Add("total", "Total");
 
             customerService = new Order_Graber_DataService.Services.CustomerService();
-            var customersList = customerService.GetAllCustomers();
+            var customersList = customerService.GetAllCustomers(); 
+            
+
             foreach (var i in customersList)
             {
                 gridClientes.Rows.Add(i.customer_name, i.phone, i.state);
@@ -95,7 +97,8 @@ namespace Order_Graber_Desktop.Forms
             var customersList = customerService.GetAllCustomers();
 
 
-            foreach (var i in customersList) {
+            foreach (var i in customersList)
+            {
 
                 gridClientes.Rows.Add(i.customer_name, i.phone, i.state);
 
@@ -173,6 +176,18 @@ namespace Order_Graber_Desktop.Forms
             AddProductos Check = new AddProductos();
             Check.Show();
             Hide();
+        }
+
+        private void button6_Click(object sender, EventArgs e)
+        {
+            AddOrden Check = new AddOrden();
+            Check.Show();
+            Hide();
+        }
+
+        private void Datos_Load(object sender, EventArgs e)
+        {
+
         }
     }
 }
