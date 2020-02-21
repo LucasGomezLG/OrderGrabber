@@ -19,3 +19,5 @@ C:\Users\lucas.gomez\Desktop\Net\Order_Graber\Order_Graber_Desktop\obj\Debug\Ord
 C:\Users\lucas.gomez\Desktop\Net\Order_Graber\Order_Graber_Desktop\obj\Debug\Order_Graber_Desktop.Forms.Datos.resources
 C:\Users\lucas.gomez\Desktop\Net\Order_Graber\Order_Graber_Desktop\bin\Debug\EntityFramework.SqlServer.dll
 C:\Users\lucas.gomez\Desktop\Net\Order_Graber\Order_Graber_Desktop\bin\Debug\EntityFramework.SqlServer.xml
+C:\Users\lucas.gomez\Desktop\Net\Order_Graber\Order_Graber_Desktop\obj\Debug\Order_Graber_Desktop.Forms.AddCliente.resources
+C:\Users\lucas.gomez\Desktop\Net\Order_Graber\Order_Graber_Desktop\obj\Debug\Order_Graber_Desktop.Forms.AddProductos.resources
